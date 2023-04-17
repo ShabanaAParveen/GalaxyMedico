@@ -1,5 +1,7 @@
 ﻿using GalaxyMedicoApp.Models;
 using GalaxyMedicoApp.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -20,8 +22,9 @@ namespace GalaxyMedicoApp.Controllers
         public async Task<IActionResult> DrugIndex()
         {
             List<DrugDto> list = new();
-            var response = await _drugService.GetAllDrugsAsync<ResponseDto>();
-            if(response!=null && response.IsSuccess)
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _drugService.GetAllDrugsAsync<ResponseDto>(accessToken);
+            if (response != null && response.IsSuccess)
             {
                 list = JsonConvert.DeserializeObject<List<DrugDto>>(Convert.ToString(response.Result));
             }
@@ -39,7 +42,9 @@ namespace GalaxyMedicoApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = await _drugService.CreateDrugAsync<ResponseDto>(model);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+                var response = await _drugService.CreateDrugAsync<ResponseDto>(model, accessToken);
                 if (response != null && response.IsSuccess)
                 {
                     return RedirectToAction(nameof(DrugIndex));
@@ -50,13 +55,13 @@ namespace GalaxyMedicoApp.Controllers
 
         public async Task<IActionResult> EditDrug(int drugId)
         {
-
-                var response = await _drugService.GetDrugByIdAsync<ResponseDto>(drugId);
-                if (response != null && response.IsSuccess)
-                {
-                    DrugDto model = JsonConvert.DeserializeObject<DrugDto>(Convert.ToString(response.Result));
-                    return View(model);
-                }
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _drugService.GetDrugByIdAsync<ResponseDto>(drugId, accessToken);
+            if (response != null && response.IsSuccess)
+            {
+                DrugDto model = JsonConvert.DeserializeObject<DrugDto>(Convert.ToString(response.Result));
+                return View(model);
+            }
             return NotFound();
         }
 
@@ -66,7 +71,8 @@ namespace GalaxyMedicoApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = await _drugService.UpdateDrugAsync<ResponseDto>(model);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var response = await _drugService.UpdateDrugAsync<ResponseDto>(model, accessToken);
                 if (response != null && response.IsSuccess)
                 {
                     return RedirectToAction(nameof(DrugIndex));
@@ -75,10 +81,11 @@ namespace GalaxyMedicoApp.Controllers
             return View(model);
         }
 
+       [Authorize(Roles ="Admin")]
         public async Task<IActionResult> DeleteDrug(int drugId)
         {
-
-            var response = await _drugService.GetDrugByIdAsync<ResponseDto>(drugId);
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _drugService.GetDrugByIdAsync<ResponseDto>(drugId,accessToken);
             if (response != null && response.IsSuccess)
             {
                 DrugDto model = JsonConvert.DeserializeObject<DrugDto>(Convert.ToString(response.Result));
@@ -93,7 +100,8 @@ namespace GalaxyMedicoApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = await _drugService.DeleteDrugAsync<ResponseDto>(model.DrugId);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var response = await _drugService.DeleteDrugAsync<ResponseDto>(model.DrugId,accessToken);
                 if (response != null && response.IsSuccess)
                 {
                     return RedirectToAction(nameof(DrugIndex));

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "bIC0FM93P0qSDxWCIWIWoeXcPsgSWW9ZokoZveKvS27SIGFTYIieU+5nEtP0nhm4hp4NeSXOl4N3TlHW+TU68w==",
+  "success": true,
+  "projectFilePath": "D:\\source\\repos\\GalaxyMedico\\GalaxyMedico.Services.Email\\GalaxyMedico.Services.Email.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CSC\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\CSC\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\CSC\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\CSC\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\CSC\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\CSC\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

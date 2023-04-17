@@ -1,5 +1,6 @@
 ﻿using GalaxyMedico.Services.DrugAPI.Models.Dto;
 using GalaxyMedico.Services.DrugAPI.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace GalaxyMedico.Services.DrugAPI.Controllers
             this._response = new ResponseDto();
         }
         [HttpGet]
+        
         public async Task<object> Get()
         {
             try
@@ -53,6 +55,7 @@ namespace GalaxyMedico.Services.DrugAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<object> Post([FromBody]DrugDto drugDto)
         {
             try
@@ -69,6 +72,7 @@ namespace GalaxyMedico.Services.DrugAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<object> Put([FromBody] DrugDto drugDto)
         {
             try
@@ -86,6 +90,7 @@ namespace GalaxyMedico.Services.DrugAPI.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [Authorize(Roles ="Admin")]
         public async Task<object> Delete(int id)
         {
             try

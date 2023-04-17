@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\M I\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\GalaxyMedicoApp.csproj": {}
+    "D:\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\GalaxyMedicoApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\M I\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\GalaxyMedicoApp.csproj": {
+    "D:\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\GalaxyMedicoApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\M I\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\GalaxyMedicoApp.csproj",
+        "projectUniqueName": "D:\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\GalaxyMedicoApp.csproj",
         "projectName": "GalaxyMedicoApp",
-        "projectPath": "C:\\Users\\M I\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\GalaxyMedicoApp.csproj",
-        "packagesPath": "C:\\Users\\M I\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\M I\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\obj\\",
+        "projectPath": "D:\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\GalaxyMedicoApp.csproj",
+        "packagesPath": "C:\\Users\\CSC\\.nuget\\packages\\",
+        "outputPath": "D:\\source\\repos\\GalaxyMedico\\GalaxyMedicoApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\M I\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CSC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -27,6 +27,8 @@
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,6 +47,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.8, )"
@@ -68,6 +78,14 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[5.0.8, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.20.0, )"
             }
           },
           "imports": [

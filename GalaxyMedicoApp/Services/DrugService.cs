@@ -15,55 +15,55 @@ namespace GalaxyMedicoApp.Services
         {
             _clientFactory = clientFactory;
         }
-        public async Task<T> CreateDrugAsync<T>(DrugDto drugDto)
+        public async Task<T> CreateDrugAsync<T>(DrugDto drugDto, string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
                 ApiType=StaticDetails.APIType.POST,
                 Data=drugDto,
                 Url=StaticDetails.DrugAPIBase+"/api/drugs",
-                AccessToken=""
+                AccessToken= token
             });
         }
 
-        public async Task<T> DeleteDrugAsync<T>(int id)
+        public async Task<T> DeleteDrugAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
                 ApiType = StaticDetails.APIType.DELETE,
                 Url = StaticDetails.DrugAPIBase + "/api/drugs/"+id,
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetAllDrugsAsync<T>()
+        public async Task<T> GetAllDrugsAsync<T>(string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
                 ApiType = StaticDetails.APIType.GET,
                 Url = StaticDetails.DrugAPIBase + "/api/drugs",
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetDrugByIdAsync<T>(int id)
+        public async Task<T> GetDrugByIdAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
                 ApiType = StaticDetails.APIType.GET,
                 Url = StaticDetails.DrugAPIBase + "/api/drugs/"+id,
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> UpdateDrugAsync<T>(DrugDto drugDto)
+        public async Task<T> UpdateDrugAsync<T>(DrugDto drugDto, string token)
         {
             return await this.SendAsync<T>(new ApiRequest
             {
                 ApiType = StaticDetails.APIType.PUT,
                 Data = drugDto,
                 Url = StaticDetails.DrugAPIBase + "/api/drugs",
-                AccessToken = ""
+                AccessToken = token
             });
         }
     }

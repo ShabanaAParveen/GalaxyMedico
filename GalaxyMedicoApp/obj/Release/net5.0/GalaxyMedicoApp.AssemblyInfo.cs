@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-GalaxyMedicoApp-91B72739-5FB4-4CF2-8B4E-8534A720D570")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("GalaxyMedicoApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]

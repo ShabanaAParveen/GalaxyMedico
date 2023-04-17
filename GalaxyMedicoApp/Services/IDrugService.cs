@@ -8,11 +8,11 @@ namespace GalaxyMedicoApp.Services
 {
     public interface IDrugService
     {
-        Task<T> GetAllDrugsAsync<T>();
-        Task<T> GetDrugByIdAsync<T>(int id);
-        Task<T> CreateDrugAsync<T>(DrugDto drugDto);
-        Task<T> UpdateDrugAsync<T>(DrugDto drugDto);
-        Task<T> DeleteDrugAsync<T>(int id);
+        Task<T> GetAllDrugsAsync<T>(string token);
+        Task<T> GetDrugByIdAsync<T>(int id, string token);
+        Task<T> CreateDrugAsync<T>(DrugDto drugDto, string token);
+        Task<T> UpdateDrugAsync<T>(DrugDto drugDto, string token);
+        Task<T> DeleteDrugAsync<T>(int id,string token);
 
     }
 }

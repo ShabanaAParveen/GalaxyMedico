@@ -1,0 +1,12 @@
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\bin\Debug\net5.0\GalaxyMedicoMessageBus.deps.json
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\bin\Debug\net5.0\GalaxyMedicoMessageBus.dll
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\bin\Debug\net5.0\ref\GalaxyMedicoMessageBus.dll
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\bin\Debug\net5.0\GalaxyMedicoMessageBus.pdb
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\obj\Debug\net5.0\GalaxyMedicoMessageBus.csproj.AssemblyReference.cache
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\obj\Debug\net5.0\GalaxyMedicoMessageBus.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\obj\Debug\net5.0\GalaxyMedicoMessageBus.AssemblyInfoInputs.cache
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\obj\Debug\net5.0\GalaxyMedicoMessageBus.AssemblyInfo.cs
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\obj\Debug\net5.0\GalaxyMedicoMessageBus.csproj.CoreCompileInputs.cache
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\obj\Debug\net5.0\GalaxyMedicoMessageBus.dll
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\obj\Debug\net5.0\ref\GalaxyMedicoMessageBus.dll
+D:\source\repos\GalaxyMedico\GalaxyMedicoMessageBus\obj\Debug\net5.0\GalaxyMedicoMessageBus.pdb

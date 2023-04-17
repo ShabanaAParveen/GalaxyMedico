@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,7 +47,7 @@ namespace GalaxyMedicoApp.Services
         {
             try
             {
-                var client = _httpClient.CreateClient("DrugAPI");
+                var client = _httpClient.CreateClient("GalaxyMedicoAPI");
                 HttpRequestMessage httpRequestMessage = new HttpRequestMessage();
                 httpRequestMessage.Headers.Add("Accept", "application/json");
                 httpRequestMessage.RequestUri = new Uri(apiRequest.Url);
@@ -54,6 +55,10 @@ namespace GalaxyMedicoApp.Services
                 if(apiRequest.Data!=null)
                 {
                     httpRequestMessage.Content = new StringContent(JsonConvert.SerializeObject(apiRequest.Data),Encoding.UTF8,"application/json");
+                }
+                if(!string.IsNullOrEmpty(apiRequest.AccessToken))
+                {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",apiRequest.AccessToken);
                 }
                 HttpResponseMessage httpResponseMessage = null;
                 switch (apiRequest.ApiType)

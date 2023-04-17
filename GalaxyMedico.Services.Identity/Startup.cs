@@ -1,6 +1,14 @@
+using Duende.IdentityServer.AspNetIdentity;
+using Duende.IdentityServer.Services;
+using GalaxyMedico.Services.Identity.DbContexts;
+using GalaxyMedico.Services.Identity.Initializer;
+using GalaxyMedico.Services.Identity.Models;
+using GalaxyMedico.Services.Identity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,11 +31,27 @@ namespace GalaxyMedico.Services.Identity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationContext>(options =>
+          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
+            var builder = services.AddIdentityServer(options =>
+            {
+                options.Events.RaiseErrorEvents = true;
+                options.Events.RaiseSuccessEvents = true;
+                options.Events.RaiseInformationEvents = true;
+                options.Events.RaiseFailureEvents = true;
+                options.EmitStaticAudienceClaim = true;
+            }).AddInMemoryIdentityResources(StaticDetails.IdentityResources)
+            .AddInMemoryApiScopes(StaticDetails.ApiScopes).AddInMemoryClients(StaticDetails.Clients)
+            .AddAspNetIdentity<ApplicationUser>();
+            services.AddScoped<IDbInitializer, DbInitializer>();
+            services.AddScoped<IProfileService, ProfileService>();
+            builder.AddDeveloperSigningCredential();
             services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -43,9 +67,9 @@ namespace GalaxyMedico.Services.Identity
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseIdentityServer();
             app.UseAuthorization();
-
+            dbInitializer.Initialize();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
