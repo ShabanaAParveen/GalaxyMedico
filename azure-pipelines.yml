@@ -5,7 +5,7 @@
 trigger:
 - master
 pool:
-  name:'default'
+name: default
 
 variables:
   buildPlatform: 'Any CPU'
